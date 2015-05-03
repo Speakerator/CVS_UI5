@@ -5,12 +5,9 @@ sap.ui.controller("mobileapp_ui5.InitialView", {
 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 * @memberOf mobileapp_ui5.InitialView
 */
-	onInit: function() {
-		var view = sap.ui.getCore().byId("InitialView");
-		var oImage = new sap.m.Image();
-		oImage.setSrc("/mobileApp_ui5/SongKick.jpg");
-		view.addContent(oImage);
-	},
+//	onInit: function() {
+//		
+//	},
 
 /**
 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
