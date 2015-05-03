@@ -1,8 +1,17 @@
-<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
-		controllerName="mobileapp_ui5.InitialView" xmlns:html="http://www.w3.org/1999/xhtml">
-	<Page title="Title">
-		<content>
-			<Text xmlns="sap.m" text="Hello World"/>
-		</content>
+
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="mobileapp_ui5.InitialView" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page xmlns="sap.m" title="MyMusicSearch">
+		<headerContent>
+			<Image xmlns="sap.m"
+			    src="SongKick.jpg"
+			    visible="true" width="" height="30px">
+				<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+				<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+			</Image>
+
+		</headerContent> <!-- sap.ui.core.Control -->
+		<content></content> <!-- sap.ui.core.Control -->
+
 	</Page>
 </core:View>
