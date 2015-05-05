@@ -6,49 +6,57 @@
 		<headerContent>
 		</headerContent> <!-- sap.ui.core.Control -->
 		<content>
-			<Panel xmlns="sap.m" height="100%">
+			<VerticalLayout xmlns="sap.ui.layout" width="100%">
 				<content>
-					<IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}"
-						class="sapUiResponsiveContentPadding">
-						<items>
-							<IconTabFilter text="by Artist" icon="sap-icon://person-placeholder">
-								<f:SimpleForm minWidth="1024" maxContainerCols="2"
-									layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
-									emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
-									<f:content>
-										<Label text="Artist	" />
-										<Input xmlns="sap.m" id="artistInput" width="" name=""
-											placeholder="Artist Name" />
-									</f:content>
-								</f:SimpleForm>
-								<Button xmlns="sap.m" text="Go!" press="peopleSearch" />
-							</IconTabFilter>
-							<IconTabFilter text="by City" icon="sap-icon://building">
-								<f:SimpleForm minWidth="1024" maxContainerCols="2"
-									layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
-									emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
-									<f:content>
-										<Label text="City" />
-										<Input xmlns="sap.m" id="cityInput" width="" name=""
-											placeholder="City" />
-										<Label text="ZIP" />
-										<Input xmlns="sap.m" id="zipInput" width="" name=""
-											placeholder="98693" />
-									</f:content>
-								</f:SimpleForm>
-								<Button xmlns="sap.m" text="Go!" press="citySearch" />
-							</IconTabFilter>
-							<IconTabFilter text="by Location" icon="sap-icon://locate-me">
-								<Text
-									text="Search for concerts and events near you using your devices location!" />
-								<Button xmlns="sap.m" text="Go!" press="locationSearch" />
-							</IconTabFilter>
-						</items>
-					</IconTabBar>
+					<Panel xmlns="sap.m" visible="true" width="auto" height="100%">
+						<content>
+							<IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}"
+								class="sapUiResponsiveContentPadding">
+								<items>
+									<IconTabFilter text="by Artist"
+										icon="sap-icon://person-placeholder">
+
+										<f:SimpleForm minWidth="1024" maxContainerCols="2"
+											layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+											emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+											<f:content>
+												<Label text="Artist	" />
+												<Input xmlns="sap.m" id="artistInput" width="" name=""
+													placeholder="Artist Name" />
+											</f:content>
+										</f:SimpleForm>
+										<Button xmlns="sap.m" text="Go!" press="onArtistSearch" />
+									</IconTabFilter>
+
+									<IconTabFilter text="by City" icon="sap-icon://building">
+										<f:SimpleForm minWidth="1024" maxContainerCols="2"
+											layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+											emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+											<f:content>
+												<Label text="City" />
+												<Input xmlns="sap.m" id="cityInput" width="" name=""
+													placeholder="City" />
+												<Label text="ZIP" />
+												<Input xmlns="sap.m" id="zipInput" width="" name=""
+													placeholder="98693" />
+											</f:content>
+										</f:SimpleForm>
+										<Button xmlns="sap.m" text="Go!" press="onCitySearch" />
+									</IconTabFilter>
+
+									<IconTabFilter text="by Location" icon="sap-icon://locate-me">
+										<Text
+											text="Search for concerts and events near you using your devices location!" />
+										<Button xmlns="sap.m" text="Go!" press="onLocationSearch" />
+									</IconTabFilter>
+								</items>
+							</IconTabBar>
+
+						</content> <!-- sap.ui.core.Control -->
+					</Panel>
+
 				</content> <!-- sap.ui.core.Control -->
-			</Panel>
-
-
+			</VerticalLayout>
 		</content> <!-- sap.ui.core.Control -->
 
 		<footer>
@@ -57,6 +65,7 @@
 					<Image xmlns="sap.m" src="mobileapp_ui5/assets/SongKick_Black.jpg"
 						visible="true" width="100%" height="100%">
 					</Image>
+
 				</contentMiddle> <!-- sap.ui.core.Control -->
 			</Bar>
 		</footer> <!-- sap.m.IBar -->
