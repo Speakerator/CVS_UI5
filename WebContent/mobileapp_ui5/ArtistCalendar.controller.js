@@ -18,6 +18,18 @@ sap.ui.controller("mobileapp_ui5.ArtistCalendar", {
 		});
 		
 	},
+	
+	onListItemPress : function(evt){
+		var path = evt.getSource().getBindingContext("ArtistCalendar").sPath;
+		var bus = sap.ui.getCore().getEventBus();
+		
+//		bus.publish("nav", "to", {
+//			dest : "EventDetails",
+//			context : context
+//		});
+//		
+	}
+	
 
 /**
 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
