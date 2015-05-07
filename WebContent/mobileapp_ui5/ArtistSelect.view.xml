@@ -1,0 +1,29 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="mobileapp_ui5.ArtistSelect" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Select an artist" showNavButton = "true" navButtonPress = "onBack">
+		<content>
+			<List items="{ArtistSearch>/resultsPage/results/artist}" headerText="Artists">
+				<items>
+				    <ObjectListItem
+					    title="{ArtistSearch>displayName}"
+					    type="Active"
+					    press="onListItemPress"
+					    numberUnit="Auf Tour bis:">
+						<firstStatus>
+							<ObjectStatus
+							    text="{ArtistSearch>onTourUntil}"
+								state="{
+              						path: 'onTourUntil',
+            						formatter: 'mobileapp_ui5.Formatter.status'}" />
+         					<!-- <ObjectStatus
+            						    text="{onTourUntil}"/> -->
+						</firstStatus>
+						<attributes>
+							<ObjectAttribute text="{ArtistSearch>id}" />
+						</attributes>
+					</ObjectListItem>
+				</items>
+			</List>
+		</content>
+	</Page>
+</core:View>

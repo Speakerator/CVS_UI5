@@ -1,0 +1,64 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="mobileapp_ui5.SearchView" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="MyMusicSearch">
+		<content>
+			<VerticalLayout xmlns="sap.ui.layout" width="100%">
+				<content>
+					<Panel xmlns="sap.m" visible="true" width="auto" height="100%">
+						<!-- Artist -->
+						<f:SimpleForm minWidth="1024" maxContainerCols="2"
+							layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+							emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+							<f:content>
+								<Label text="Artist	" />
+								<Input xmlns="sap.m" id="artistInput" width="" name=""
+									placeholder="Artist Name" value="Katy"/>
+								<Button xmlns="sap.m" text="Go!" press="onArtistSearch" />
+							</f:content>
+						</f:SimpleForm>
+						
+					</Panel>
+
+					<!-- City -->
+					<Panel xmlns="sap.m" visible="true" width="auto" height="100%">
+						<f:SimpleForm minWidth="1024" maxContainerCols="2"
+							layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+							emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+							<f:content>
+								<Label text="City" />
+								<Input xmlns="sap.m" id="cityInput" width="" name=""
+									placeholder="City" />
+								<Label text="ZIP" />
+								<Input xmlns="sap.m" id="zipInput" width="" name=""
+									placeholder="98693" />
+								<Button xmlns="sap.m" text="Go!" press="onCitySearch" />
+							</f:content>
+						</f:SimpleForm>
+						
+					</Panel>
+					<Panel xmlns="sap.m" visible="true" width="auto" height="100%">
+						<!-- location -->
+						<Text
+							text="Search for concerts and events near you using your devices location!" />
+						<Button xmlns="sap.m" text="Go!" press="onLocationSearch" />
+
+					</Panel>
+
+				</content> <!-- sap.ui.core.Control -->
+			</VerticalLayout>
+		</content> <!-- sap.ui.core.Control -->
+
+		<footer>
+			<Bar xmlns="sap.m">
+				<contentMiddle>
+					<Image xmlns="sap.m" src="mobileapp_ui5/assets/SongKick_Black.jpg"
+						visible="true" width="100%" height="100%">
+					</Image>
+
+				</contentMiddle> <!-- sap.ui.core.Control -->
+			</Bar>
+		</footer> <!-- sap.m.IBar -->
+
+	</Page>
+</core:View>

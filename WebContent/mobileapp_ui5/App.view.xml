@@ -2,7 +2,8 @@
 		controllerName="mobileapp_ui5.App" xmlns:html="http://www.w3.org/1999/xhtml">
 	<App id="theApp">
 		<!--Only the first page needs to be added, lazy loading implemented  -->
-		<mvc:XMLView id="InitialView" viewName="mobileapp_ui5.InitialView"></mvc:XMLView>
+		<!-- <mvc:XMLView id="InitialView" viewName="mobileapp_ui5.InitialView"></mvc:XMLView> -->
+		<mvc:XMLView id="SearchView" viewName="mobileapp_ui5.SearchView"></mvc:XMLView>
 		
 	</App>
 </core:View>

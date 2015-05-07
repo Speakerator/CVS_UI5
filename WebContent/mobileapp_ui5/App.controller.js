@@ -36,7 +36,7 @@ sap.ui.controller("mobileapp_ui5.App",
 					if (data && data.dest) {
 						if (this.app.getPage(data.dest) === null) { // page has not yet been loaded
 							jQuery.sap.log.info("now loading page '" + data.dest + "'");
-							this.app.addPage(sap.ui.jsview(data.dest, "mobileapp_ui5."+ data.dest));
+							this.app.addPage(sap.ui.xmlview(data.dest, "mobileapp_ui5."+ data.dest));
 						}
 						this.app.to(data.dest, data.context);
 					} else {
@@ -48,7 +48,7 @@ sap.ui.controller("mobileapp_ui5.App",
 					if (data && data.dest && data.source) {
 						if (this.app.getPage(data.dest) === null) { // page has not yet been loaded
 							jQuery.sap.log.info("now loading page '" + data.dest + "'");
-							this.app.addPage(sap.ui.jsview(data.dest, "mobileapp_ui5."+ data.dest));
+							this.app.addPage(sap.ui.xmlview(data.dest, "mobileapp_ui5."+ data.dest));
 						}
 						
 						var sourcePage = this.app.getPage(data.source);
@@ -66,7 +66,7 @@ sap.ui.controller("mobileapp_ui5.App",
 				var destPage = this.app.getPage(data.dest);
 				destPage.destroy();
 				this.app.removePage(data.dest);
-				this.app.addPage(sap.ui.jsview(data.dest, "mobileapp_ui5."+ data.dest));
+				this.app.addPage(sap.ui.xmlview(data.dest, "mobileapp_ui5."+ data.dest));
 				this.app.to(data.dest,data.context);
 				
 				//if true, source page is destroyed too
@@ -83,8 +83,8 @@ sap.ui.controller("mobileapp_ui5.App",
 		navBackHandler : function(channelId, eventId, data) {
 			var page = this.app.getPage(data.source);
 			this.app.back();
-			page.destroy();
-			this.app.removePage(data.caller);
+//			page.destroy();
+//			this.app.removePage(data.caller);
 		},
 		
 		

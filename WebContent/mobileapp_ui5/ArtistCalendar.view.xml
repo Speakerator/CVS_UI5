@@ -1,0 +1,23 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="mobileapp_ui5.ArtistCalendar" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Select an event" showNavButton = "true" navButtonPress = "onBack">
+		<content> 
+		    <List items="{ArtistCalendar>/resultsPage/results/event}" headerText="Events">
+				<items>
+					<ObjectListItem
+					    title="{ArtistCalendar>displayName}"
+					    type="Active"
+					    press="onListItemPress">
+						<firstStatus>
+							<ObjectStatus text="{ArtistCalendar>onTourUntil}"/>
+						</firstStatus>
+						<attributes>
+							<ObjectAttribute text="{ArtistCalendar>type}" />
+							<ObjectAttribute text="{ArtistCalendar>location/city}" />
+						</attributes>
+					</ObjectListItem>
+				</items>
+			</List>
+		</content>
+	</Page>
+</core:View>
