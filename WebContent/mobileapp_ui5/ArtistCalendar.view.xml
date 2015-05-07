@@ -19,5 +19,15 @@
 				</items>
 			</List>
 		</content>
+		<footer>
+			<Bar xmlns="sap.m">
+				<contentMiddle>
+					<Image xmlns="sap.m" src="mobileapp_ui5/assets/SongKick_Black.jpg"
+						visible="true" width="100%" height="100%">
+					</Image>
+
+				</contentMiddle> <!-- sap.ui.core.Control -->
+			</Bar>
+		</footer> <!-- sap.m.IBar -->
 	</Page>
 </core:View>

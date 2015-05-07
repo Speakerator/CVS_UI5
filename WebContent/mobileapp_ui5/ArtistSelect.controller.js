@@ -33,7 +33,6 @@ sap.ui.controller("mobileapp_ui5.ArtistSelect", {
 		if(rLength === 0){
 			sap.m.MessageToast.show("Sorry, no current events");
 		}else{
-			sap.m.MessageToast.show("There are events, let's go there!");
 			var bus = sap.ui.getCore().getEventBus();
 			
 			bus.publish("nav", "to", {

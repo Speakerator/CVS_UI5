@@ -21,13 +21,7 @@ _view : null,
 		var rLength = parseInt(oResponse.getProperty("/resultsPage/totalEntries"));
 		
 		if(rLength == 0){
-			sap.m.MessageToast().show("Sorry, no artists match your search");
-		}else if(rLength == 1){
-			
-			sap.m.MessageToast().show("We should do some navigation");
-			var id = oResponse.getProperty("/resultsPage/results/artist/0/id");
-			this.getArtistCalendar(id);
-			
+			sap.m.MessageToast.show("Sorry, no artists match your search");
 		}else{
 			var bus = sap.ui.getCore().getEventBus();
 			
@@ -56,9 +50,9 @@ _view : null,
 		var rLength = parseInt(oCalendarResponse.getProperty("/resultsPage/totalEntries"));
 		
 		if(rLength === 0){
-			sap.m.MessageToast().show("Sorry, no current events");
+			sap.m.MessageToast.show("Sorry, no current events");
 		}else{
-			sap.m.MessageToast().show("There are events, let's go there!");
+			sap.m.MessageToast.show("There are events, let's go there!");
 			var bus = sap.ui.getCore().getEventBus();
 			
 			bus.publish("nav", "to", {
