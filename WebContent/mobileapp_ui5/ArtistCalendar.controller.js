@@ -20,15 +20,19 @@ sap.ui.controller("mobileapp_ui5.ArtistCalendar", {
 	},
 	
 	onListItemPress : function(evt){
-		var path = evt.getSource().getBindingContext("ArtistCalendar").sPath;
-		var bus = sap.ui.getCore().getEventBus();
-		
-//		bus.publish("nav", "to", {
-//			dest : "EventDetails",
-//			context : context
-//		});
-//		
-	}
+		var sPath = evt.getSource().getBindingContext("ArtistCalendar").sPath;
+		this.getView().bindElement(sPath);        
+		if (!this._oDialog) {
+		    this._oDialog = sap.ui.xmlfragment("mobileapp_ui5.EventDetails", this);
+			this.getView().addDependent(this._oDialog);
+		}
+		this._oDialog.open();
+	},
+	
+	onDialogCloseButton : function(){
+	    this._oDialog.close();
+	    this.getView().unbindElement();
+	},
 	
 
 /**
