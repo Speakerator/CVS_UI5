@@ -39,8 +39,9 @@ sap.ui.controller("mobileapp_ui5.EventCalendar", {
 	onListItemPress2 : function(evt) {
 
 
-		// get the index of the pressed item
-		var id = evt.getSource().getAttributes()[0].getText();
+		// get the first attribuite (eventId) of the pressed item
+		//this is unfortunately 'null'
+		var eventId = evt.getSource().getAttributes()[0].getText();
 
 		var oResponse = new sap.ui.model.json.JSONModel();
 		var queryUrl = "http://api.songkick.com/api/3.0/events/" +eventId +".json?apikey=Yw4AuPNCzLHvBv86";
@@ -50,17 +51,17 @@ sap.ui.controller("mobileapp_ui5.EventCalendar", {
 			alert("Something bad happened!");
 		}
 
-		sap.ui.getCore().setModel(oResponse);
+		sap.ui.getCore().setModel("EventDetails",oResponse);
 		var rLength = parseInt(oResponse
 				.getProperty("/resultsPage/totalEntries"));
 
 		if (rLength === 0) {
-			sap.m.MessageToast.show("Sorry, no current events");
+			sap.m.MessageToast.show("No Details"); //with consistent data, this should never occur
 		} else {
 			var bus = sap.ui.getCore().getEventBus();
 
 			bus.publish("nav", "to", {
-				dest : "EventCalendar",
+				dest : "EventDetails",
 				context : undefined
 			});
 		}

@@ -9,10 +9,10 @@
 					    type="Active"
 					    press="onListItemPress">
 						<firstStatus>
-							<ObjectStatus text="{onTourUntil}"/>
+							<ObjectStatus text="{{type}}"/>
 						</firstStatus>
 						<attributes>
-							<ObjectAttribute text="{type}" />
+							<ObjectAttribute text="id" />
 							<ObjectAttribute text="{location/city}" />
 						</attributes>
 					</ObjectListItem>

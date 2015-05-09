@@ -15,6 +15,7 @@ sap.ui.controller("mobileapp_ui5.ArtistSelect", {
 		//sample event id: 1134363
 		//sample url: http://api.songkick.com/api/3.0/artists/1134363/calendar.json?apikey=Yw4AuPNCzLHvBv86
 		
+		//get the artist id of the pressed item
 		var id = evt.getSource().getAttributes()[0].getText();
 		
 		var oResponse = new sap.ui.model.json.JSONModel();
