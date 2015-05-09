@@ -43,7 +43,7 @@ sap.ui.controller("mobileapp_ui5.EventCalendar", {
 		var id = evt.getSource().getAttributes()[0].getText();
 
 		var oResponse = new sap.ui.model.json.JSONModel();
-		var queryUrl = "http://api.songkick.com/api/3.0/events/" +eventId +".json?apikey=Yw4AuPNCzLHvBv86
+		var queryUrl = "http://api.songkick.com/api/3.0/events/" +eventId +".json?apikey=Yw4AuPNCzLHvBv86";
 		try {
 			oResponse.loadData(queryUrl, null, false);
 		} catch (e) {
