@@ -7,12 +7,12 @@
 					<ObjectListItem
 					    title="{displayName}"
 					    type="Active"
-					    press="onListItemPress">
+					    press="onListItemPress2">
 						<firstStatus>
-							<ObjectStatus text="{{type}}"/>
+							<ObjectStatus text="{type}"/>
 						</firstStatus>
 						<attributes>
-							<ObjectAttribute text="id" />
+							<ObjectAttribute text="{id}" />
 							<ObjectAttribute text="{location/city}" />
 						</attributes>
 					</ObjectListItem>
