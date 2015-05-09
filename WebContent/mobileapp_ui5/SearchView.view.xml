@@ -12,36 +12,38 @@
 							emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
 							<f:content>
 								<Label text="Artist	" />
-								<Input xmlns="sap.m" id="artistInput" width="" name=""
-									placeholder="Artist Name" value="Katy"/>
-								<Button xmlns="sap.m" text="Go!" press="onArtistSearch" />
+								<SearchField xmlns="sap.m" id="artistInput" width=""
+									placeholder="Artist Name" value="Katy" search="onArtistSearch" />
 							</f:content>
 						</f:SimpleForm>
-						
-					</Panel>
-
-					<!-- City -->
-					<Panel xmlns="sap.m" visible="true" width="auto" height="100%">
 						<f:SimpleForm minWidth="1024" maxContainerCols="2"
 							layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
 							emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
 							<f:content>
 								<Label text="City" />
-								<Input xmlns="sap.m" id="cityInput" width="" name=""
-									placeholder="City" />
-								<Label text="ZIP" />
-								<Input xmlns="sap.m" id="zipInput" width="" name=""
-									placeholder="98693" />
-								<Button xmlns="sap.m" text="Go!" press="onCitySearch" />
+								<SearchField xmlns="sap.m" id="cityInput" width=""
+									placeholder="City" value="Chicago" search="onCitySearch" />
 							</f:content>
 						</f:SimpleForm>
-						
-					</Panel>
-					<Panel xmlns="sap.m" visible="true" width="auto" height="100%">
-						<!-- location -->
-						<Text
-							text="Search for concerts and events near you using your devices location!" />
-						<Button xmlns="sap.m" text="Go!" press="onLocationSearch" />
+						<f:SimpleForm minWidth="1024" maxContainerCols="2"
+							layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+							emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+							<f:content>
+								<Label text="Location-based" />
+								<Button xmlns="sap.m" text="Go!" press="onLocationSearch" />
+
+							</f:content>
+						</f:SimpleForm>
+
+						<f:SimpleForm minWidth="1024" maxContainerCols="2"
+							layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+							emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+							<f:content>
+								<Label text="Events in New York" />
+								<Button xmlns="sap.m" text="Go!" press="onFakeLocationSearch" />
+
+							</f:content>
+						</f:SimpleForm>
 
 					</Panel>
 

@@ -27,7 +27,7 @@ sap.ui.controller("mobileapp_ui5.ArtistSelect", {
 		
 		
 		
-		sap.ui.getCore().setModel(oResponse, "ArtistCalendar");
+		sap.ui.getCore().setModel(oResponse);
 		var rLength = parseInt(oResponse.getProperty("/resultsPage/totalEntries"));
 		
 		if(rLength === 0){
@@ -36,7 +36,7 @@ sap.ui.controller("mobileapp_ui5.ArtistSelect", {
 			var bus = sap.ui.getCore().getEventBus();
 			
 			bus.publish("nav", "to", {
-				dest : "ArtistCalendar",
+				dest : "EventCalendar",
 				context : undefined
 			});
 		}

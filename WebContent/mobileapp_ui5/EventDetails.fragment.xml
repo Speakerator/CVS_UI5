@@ -29,6 +29,9 @@
 
 				<Label text="Type" />
 				<Text text="{type}" />
+				
+				<Label text="URL" />
+				<Text text="{uri}" />
 
 				
 				<!-- <Label text="Time" />

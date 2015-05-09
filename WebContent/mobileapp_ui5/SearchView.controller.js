@@ -30,9 +30,6 @@ _view : null,
 				context : undefined
 			});
 		}
-		
-		// oResponse.getProperty("/resultsPage/status")
-		// http://api.songkick.com/api/3.0/search/artists.json?query=Coldplay&apikey=Yw4AuPNCzLHvBv86
 	
 	},
 	
@@ -46,7 +43,7 @@ _view : null,
 			alert("Something bad happened!");
 		}			
 		
-		sap.ui.getCore().setModel(oCalendarResponse, "ArtistCalendar");
+		sap.ui.getCore().setModel(oCalendarResponse);
 		var rLength = parseInt(oCalendarResponse.getProperty("/resultsPage/totalEntries"));
 		
 		if(rLength === 0){
@@ -56,7 +53,7 @@ _view : null,
 			var bus = sap.ui.getCore().getEventBus();
 			
 			bus.publish("nav", "to", {
-				dest : "ArtistCalendar",
+				dest : "EventCalendar",
 				context : undefined
 			});
 		}
@@ -64,9 +61,84 @@ _view : null,
 	onCitySearch : function(){
 		
 	},
-	
+	//metro area search
+	//http://api.songkick.com/api/3.0/search/locations.json?location=geo:50.6886048,10.9180371&apikey=Yw4AuPNCzLHvBv86
+
 	onLocationSearch : function(){
+		var lat;
+		var long;
 		
+		try {
+			var onSuccess = function(position) {
+				lat = position.coords.latitude;
+				long = position.coords.longitude;
+			 
+				var oResponse = new sap.ui.model.json.JSONModel();
+				var queryUrl = "http://api.songkick.com/api/3.0/events.json?apikey=Yw4AuPNCzLHvBv86&location=geo:" + lat + "," + long;  
+
+				try {
+					oResponse.loadData(queryUrl, null,false);	
+				} catch (e) {
+					alert("Something bad happened!");
+				}
+				
+				sap.ui.getCore().setModel(oResponse);
+				var rLength = parseInt(oResponse.getProperty("/resultsPage/totalEntries"));
+				
+				if(rLength == 0){
+					sap.m.MessageToast.show("Sorry, no events in your area...");
+				}else{
+					var bus = sap.ui.getCore().getEventBus();
+					
+					//navigate to event overview page
+					bus.publish("nav", "to", {
+						dest : "EventCalendar",
+						context : undefined
+					});
+				}
+			};
+
+			// onError Callback receives a PositionError object
+			//
+			function onError(error) {
+			    alert('code: '    + error.code    + '\n' +
+			          'message: ' + error.message + '\n');
+			}
+
+			navigator.geolocation.getCurrentPosition(onSuccess, onError);
+		} catch (e) {
+			sap.m.MessageToast.show("This only works on mobile devices dummy...");
+		}
+		
+	},
+	
+	
+	
+	onFakeLocationSearch : function(){
+		
+				var oResponse = new sap.ui.model.json.JSONModel();
+				var queryUrl = "http://api.songkick.com/api/3.0/events.json?apikey=Yw4AuPNCzLHvBv86&location=geo:40.74,-73.98";  				
+				
+				try {
+					oResponse.loadData(queryUrl, null,false);	
+				} catch (e) {
+					alert("Something bad happened!");
+				}
+				
+				sap.ui.getCore().setModel(oResponse);
+				var rLength = parseInt(oResponse.getProperty("/resultsPage/totalEntries"));
+				
+				if(rLength == 0){
+					sap.m.MessageToast.show("Sorry, no events in your area...");
+				}else{
+					var bus = sap.ui.getCore().getEventBus();
+					
+					//navigate to event overview page
+					bus.publish("nav", "to", {
+						dest : "EventCalendar",
+						context : undefined
+					});
+				}
 	},
 	
 	
