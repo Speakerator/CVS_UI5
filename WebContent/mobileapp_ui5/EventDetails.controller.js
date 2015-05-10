@@ -5,9 +5,9 @@ sap.ui.controller("mobileapp_ui5.EventDetails", {
 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 * @memberOf mobileapp_ui5.EventDetails
 */
-	onInit: function() {
-		var test = sap.ui.getCore().getModel();
-	},
+//	onInit: function() {
+//		
+//	},
 	
 	
 	

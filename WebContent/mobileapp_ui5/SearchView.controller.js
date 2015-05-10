@@ -35,34 +35,7 @@ _view : null,
 	
 	},
 	
-	
-//	getArtistCalendar : function(id){
-//		var oPanel = this.getView().byId("mainPanel");
-//		var oCalendaroResponse = new sap.ui.model.json.JSONModel();
-//		var queryUrl = "http://api.songkick.com/api/3.0/artists/"+ id + "/calendar.json?apikey=Yw4AuPNCzLHvBv86";
-//		oPanel.setBusy(true);
-//		try {
-//			oCalendaroResponse.loadData(queryUrl, null,false);	
-//		} catch (e) {
-//			oPanel.setBusy(false);
-//			alert("Something bad happened!");
-//		}			
-//		oPanel.setBusy(false);
-//		sap.ui.getCore().setModel(oCalendarResponse, "EventCalendar");
-//		var rLength = parseInt(oCalendarResponse.getProperty("/resultsPage/totalEntries"));
-//		
-//		if(rLength === 0){
-//			sap.m.MessageToast.show("Sorry, no current events");
-//		}else{
-//			sap.m.MessageToast.show("There are events, let's go there!");
-//			var bus = sap.ui.getCore().getEventBus();
-//			
-//			bus.publish("nav", "to", {
-//				dest : "EventCalendar",
-//				context : undefined
-//			});
-//		}
-//	},
+
 	onCitySearch : function(){
 		
 	},
@@ -78,9 +51,11 @@ _view : null,
 			var onSuccess = function(position) {
 				lat = position.coords.latitude;
 				long = position.coords.longitude;
-			 
+				
+				
 				var oResponse = new sap.ui.model.json.JSONModel();
-				var queryUrl = "http://api.songkick.com/api/3.0/events.json?apikey=Yw4AuPNCzLHvBv86&location=geo:" + lat + "," + long;  
+				http://api.songkick.com/api/3.0/search/locations.json?location=geo:{lat,lng}&apikey={your_api_key}
+				var queryUrl = "http://api.songkick.com/api/3.0/search/locations.json?apikey=Yw4AuPNCzLHvBv86&location=geo:" + lat + "," + long;  
 
 				try {
 					oResponse.loadData(queryUrl, null,false);	
@@ -89,7 +64,7 @@ _view : null,
 					oPanel.setBusy(false);
 				}
 				oPanel.setBusy(false);
-				sap.ui.getCore().setModel(oResponse,"EventCalendar");
+				sap.ui.getCore().setModel(oResponse,"MetroArea");
 				var rLength = parseInt(oResponse.getProperty("/resultsPage/totalEntries"));
 				
 				if(rLength == 0){
@@ -99,10 +74,11 @@ _view : null,
 					
 					//navigate to event overview page
 					bus.publish("nav", "to", {
-						dest : "EventCalendar",
+						dest : "MetroArea",
 						context : undefined
 					});
 				}
+
 			};
 
 			// onError Callback receives a PositionError object

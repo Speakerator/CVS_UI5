@@ -1,7 +1,7 @@
 <core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m" controllerName="mobileapp_ui5.EventDetails" xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:f="sap.ui.layout.form">
-	<Page title="Title" showNavButton="true" navButtonPress="onBack">
+	<Page title="Event Details" showNavButton="true" navButtonPress="onBack">
 		<content>
 			<Panel xmlns="sap.m" headerText="General" width="100%" height="auto"
 				expandable="true" expanded="true">
@@ -36,8 +36,7 @@
 			<Panel xmlns="sap.m" headerText="Performance" width="100%"
 				height="auto" expandable="true" expanded="true">
 				<content>
-					<List items="{/resultsPage/results/event/performance}"
-						headerText="Events:">
+					<List items="{/resultsPage/results/event/performance}">
 						<items>
 							<ObjectListItem title="{displayName}">
 								<attributes>
@@ -49,11 +48,11 @@
 				</content> <!-- sap.ui.core.Control -->
 			</Panel>
 
-			<Panel xmlns="sap.m" headerText="Performance" width="100%"
+			<Panel xmlns="sap.m" headerText="Venue" width="100%"
 				height="auto" expandable="true" expanded="true">
 				<content>
 					<f:SimpleForm minWidth="2048" maxContainerCols="2"
-						editable="false" layout="ResponsiveGridLayout" title="Venue"
+						editable="false" layout="ResponsiveGridLayout"
 						labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0"
 						columnsL="1" columnsM="1">
 						<f:content>

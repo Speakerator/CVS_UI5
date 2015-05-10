@@ -20,22 +20,6 @@ sap.ui.controller("mobileapp_ui5.EventCalendar", {
 
 	},
 
-//	onListItemPress : function(evt) {
-//
-//		// do event details search instead!
-//		// e.g.: 23017273
-//		// http://api.songkick.com/api/3.0/events/23017273.json?apikey=Yw4AuPNCzLHvBv86
-//
-//		var sPath = evt.getSource().getBindingContext().sPath;
-//		this.getView().bindElement(sPath);
-//		if (!this._oDialog) {
-//			this._oDialog = sap.ui.xmlfragment("mobileapp_ui5.EventDetails",
-//					this);
-//			this.getView().addDependent(this._oDialog);
-//		}
-//		this._oDialog.open();
-//	},
-
 	onListItemPress : function(evt) {
 
 		var oList = this.getView().byId("eventList");
@@ -61,11 +45,6 @@ sap.ui.controller("mobileapp_ui5.EventCalendar", {
 		
 
 	},
-
-//	onDialogCloseButton : function() {
-//		this._oDialog.close();
-//		this.getView().unbindElement();
-//	},
 
 /**
  * Similar to onAfterRendering, but this hook is invoked before the controller's
