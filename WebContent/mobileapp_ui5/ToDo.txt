@@ -1,0 +1,5 @@
+- get a pretty icon
+- refresh detail view (collapsed etc.)
+-formatter for "onTour" (has to work somehow, e. g. within class)
+- on clean triggers search....
+-erro handling searching with empty field etc.
