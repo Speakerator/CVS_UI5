@@ -2,7 +2,7 @@
 	xmlns="sap.m" controllerName="mobileapp_ui5.ArtistSelect" xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page title="Select an artist" showNavButton = "true" navButtonPress = "onBack">
 		<content>
-			<List items="{ArtistSearch>/resultsPage/results/artist}" headerText="Artists">
+			<List items="{ArtistSearch>/resultsPage/results/artist}" headerText="Artists" id="artistList">
 				<items>
 				    <ObjectListItem
 					    title="{ArtistSearch>displayName}"

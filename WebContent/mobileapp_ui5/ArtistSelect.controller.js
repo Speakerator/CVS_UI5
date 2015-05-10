@@ -15,20 +15,24 @@ sap.ui.controller("mobileapp_ui5.ArtistSelect", {
 		//sample event id: 1134363
 		//sample url: http://api.songkick.com/api/3.0/artists/1134363/calendar.json?apikey=Yw4AuPNCzLHvBv86
 		
+		var oList = this.getView().byId("artistList");
+		
 		//get the artist id of the pressed item
 		var id = evt.getSource().getAttributes()[0].getText();
 		
 		var oResponse = new sap.ui.model.json.JSONModel();
 		var queryUrl = "http://api.songkick.com/api/3.0/artists/"+ id + "/calendar.json?apikey=Yw4AuPNCzLHvBv86";
+		oList.setBusy(true);
 		try {
 			oResponse.loadData(queryUrl, null,false);	
 		} catch (e) {
 			alert("Something bad happened!");
+			oList.setBusy(false);
 		}
 		
 		
-		
-		sap.ui.getCore().setModel(oResponse);
+		oList.setBusy(false);
+		sap.ui.getCore().setModel(oResponse, "EventCalendar");
 		var rLength = parseInt(oResponse.getProperty("/resultsPage/totalEntries"));
 		
 		if(rLength === 0){

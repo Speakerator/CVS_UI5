@@ -36,33 +36,33 @@ _view : null,
 	},
 	
 	
-	getArtistCalendar : function(id){
-		var oPanel = this.getView().byId("mainPanel");
-		var oCalendaroResponse = new sap.ui.model.json.JSONModel();
-		var queryUrl = "http://api.songkick.com/api/3.0/artists/"+ id + "/calendar.json?apikey=Yw4AuPNCzLHvBv86";
-		oPanel.setBusy(true);
-		try {
-			oCalendaroResponse.loadData(queryUrl, null,false);	
-		} catch (e) {
-			oPanel.setBusy(false);
-			alert("Something bad happened!");
-		}			
-		oPanel.setBusy(false);
-		sap.ui.getCore().setModel(oCalendarResponse);
-		var rLength = parseInt(oCalendarResponse.getProperty("/resultsPage/totalEntries"));
-		
-		if(rLength === 0){
-			sap.m.MessageToast.show("Sorry, no current events");
-		}else{
-			sap.m.MessageToast.show("There are events, let's go there!");
-			var bus = sap.ui.getCore().getEventBus();
-			
-			bus.publish("nav", "to", {
-				dest : "EventCalendar",
-				context : undefined
-			});
-		}
-	},
+//	getArtistCalendar : function(id){
+//		var oPanel = this.getView().byId("mainPanel");
+//		var oCalendaroResponse = new sap.ui.model.json.JSONModel();
+//		var queryUrl = "http://api.songkick.com/api/3.0/artists/"+ id + "/calendar.json?apikey=Yw4AuPNCzLHvBv86";
+//		oPanel.setBusy(true);
+//		try {
+//			oCalendaroResponse.loadData(queryUrl, null,false);	
+//		} catch (e) {
+//			oPanel.setBusy(false);
+//			alert("Something bad happened!");
+//		}			
+//		oPanel.setBusy(false);
+//		sap.ui.getCore().setModel(oCalendarResponse, "EventCalendar");
+//		var rLength = parseInt(oCalendarResponse.getProperty("/resultsPage/totalEntries"));
+//		
+//		if(rLength === 0){
+//			sap.m.MessageToast.show("Sorry, no current events");
+//		}else{
+//			sap.m.MessageToast.show("There are events, let's go there!");
+//			var bus = sap.ui.getCore().getEventBus();
+//			
+//			bus.publish("nav", "to", {
+//				dest : "EventCalendar",
+//				context : undefined
+//			});
+//		}
+//	},
 	onCitySearch : function(){
 		
 	},
@@ -89,7 +89,7 @@ _view : null,
 					oPanel.setBusy(false);
 				}
 				oPanel.setBusy(false);
-				sap.ui.getCore().setModel(oResponse);
+				sap.ui.getCore().setModel(oResponse,"EventCalendar");
 				var rLength = parseInt(oResponse.getProperty("/resultsPage/totalEntries"));
 				
 				if(rLength == 0){
@@ -133,7 +133,7 @@ _view : null,
 					oPanel.setBusy(false);
 				}
 				oPanel.setBusy(false);
-				sap.ui.getCore().setModel(oResponse);
+				sap.ui.getCore().setModel(oResponse,"EventCalendar");
 				var rLength = parseInt(oResponse.getProperty("/resultsPage/totalEntries"));
 				
 				if(rLength == 0){

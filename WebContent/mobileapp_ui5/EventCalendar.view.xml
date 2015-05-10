@@ -2,18 +2,18 @@
 		controllerName="mobileapp_ui5.EventCalendar" xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page title="Select an event" showNavButton = "true" navButtonPress = "onBack">
 		<content> 
-		    <List items="{/resultsPage/results/event}" headerText="Events:">
+		    <List items="{EventCalendar>/resultsPage/results/event}" headerText="Events:" id="eventList">
 				<items>
 					<ObjectListItem
-					    title="{displayName}"
+					    title="{EventCalendar>displayName}"
 					    type="Active"
-					    press="onListItemPress2">
+					    press="onListItemPress">
 						<firstStatus>
-							<ObjectStatus text="{type}"/>
+							<ObjectStatus text="{EventCalendar>type}"/>
 						</firstStatus>
 						<attributes>
-							<ObjectAttribute text="{id}" />
-							<ObjectAttribute text="{location/city}" />
+							<ObjectAttribute text="{EventCalendar>id}" />
+							<ObjectAttribute text="{EventCalendar>location/city}" />
 						</attributes>
 					</ObjectListItem>
 				</items>

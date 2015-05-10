@@ -1,8 +1,83 @@
-<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
-		controllerName="mobileapp_ui5.EventDetails" xmlns:html="http://www.w3.org/1999/xhtml">
-	<Page title="Title">
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="mobileapp_ui5.EventDetails" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:f="sap.ui.layout.form">
+	<Page title="Title" showNavButton="true" navButtonPress="onBack">
 		<content>
-	
+			<Panel xmlns="sap.m" headerText="General" width="100%" height="auto"
+				expandable="true" expanded="true">
+				<content>
+					<f:SimpleForm minWidth="2048" maxContainerCols="2"
+						editable="false" layout="ResponsiveGridLayout" labelSpanL="4"
+						labelSpanM="4" emptySpanL="0" emptySpanM="0" columnsL="1"
+						columnsM="1">
+						<f:content>
+							<Label text="Name" />
+							<Text text="{/resultsPage/results/event/displayName}" />
+
+							<Label text="Type" />
+							<Text text="{/resultsPage/results/event/type}" />
+
+							<Label text="Location" />
+							<Text text="{/resultsPage/results/event/location/city}" />
+
+							<Label text="Date" />
+							<Text text="{/resultsPage/results/event/start/date}" />
+
+							<Label text="Time" />
+							<Text text="{/resultsPage/results/event/start/time}" />
+
+							<Label text="Popularity" />
+							<Text text="{/resultsPage/results/event/popularity}" />
+						</f:content>
+					</f:SimpleForm>
+				</content> <!-- sap.ui.core.Control -->
+			</Panel>
+
+			<Panel xmlns="sap.m" headerText="Performance" width="100%"
+				height="auto" expandable="true" expanded="true">
+				<content>
+					<List items="{/resultsPage/results/event/performance}"
+						headerText="Events:">
+						<items>
+							<ObjectListItem title="{displayName}">
+								<attributes>
+									<ObjectAttribute text="{billing}" />
+								</attributes>
+							</ObjectListItem>
+						</items>
+					</List>
+				</content> <!-- sap.ui.core.Control -->
+			</Panel>
+
+			<Panel xmlns="sap.m" headerText="Performance" width="100%"
+				height="auto" expandable="true" expanded="true">
+				<content>
+					<f:SimpleForm minWidth="2048" maxContainerCols="2"
+						editable="false" layout="ResponsiveGridLayout" title="Venue"
+						labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0"
+						columnsL="1" columnsM="1">
+						<f:content>
+							<Label text="Name" />
+							<Text text="{/resultsPage/results/event/venue/displayName}" />
+
+							<Label text="City" />
+							<Text text="{/resultsPage/results/event/venue/city/displayName}" />
+
+							<Label text="Street" />
+							<Text text="{/resultsPage/results/event/venue/street}" />
+
+							<Label text="Website" />
+							<Text text="{/resultsPage/results/event/venue/website}" />
+						</f:content>
+					</f:SimpleForm>
+				</content> <!-- sap.ui.core.Control -->
+			</Panel>
+
+
+
+
+
+
 		</content>
 	</Page>
 </core:View>

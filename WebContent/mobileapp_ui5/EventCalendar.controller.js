@@ -20,58 +20,52 @@ sap.ui.controller("mobileapp_ui5.EventCalendar", {
 
 	},
 
+//	onListItemPress : function(evt) {
+//
+//		// do event details search instead!
+//		// e.g.: 23017273
+//		// http://api.songkick.com/api/3.0/events/23017273.json?apikey=Yw4AuPNCzLHvBv86
+//
+//		var sPath = evt.getSource().getBindingContext().sPath;
+//		this.getView().bindElement(sPath);
+//		if (!this._oDialog) {
+//			this._oDialog = sap.ui.xmlfragment("mobileapp_ui5.EventDetails",
+//					this);
+//			this.getView().addDependent(this._oDialog);
+//		}
+//		this._oDialog.open();
+//	},
+
 	onListItemPress : function(evt) {
 
-		// do event details search instead!
-		// e.g.: 23017273
-		// http://api.songkick.com/api/3.0/events/23017273.json?apikey=Yw4AuPNCzLHvBv86
-
-		var sPath = evt.getSource().getBindingContext().sPath;
-		this.getView().bindElement(sPath);
-		if (!this._oDialog) {
-			this._oDialog = sap.ui.xmlfragment("mobileapp_ui5.EventDetails",
-					this);
-			this.getView().addDependent(this._oDialog);
-		}
-		this._oDialog.open();
-	},
-
-	onListItemPress2 : function(evt) {
-
-
-		// get the first attribuite (eventId) of the pressed item
-		//this is unfortunately 'null'
+		var oList = this.getView().byId("eventList");
 		var eventId = evt.getSource().getAttributes()[0].getText();
-
+		oList.setBusy(true);
 		var oResponse = new sap.ui.model.json.JSONModel();
 		var queryUrl = "http://api.songkick.com/api/3.0/events/" +eventId +".json?apikey=Yw4AuPNCzLHvBv86";
 		try {
 			oResponse.loadData(queryUrl, null, false);
-		} catch (e) {
-			alert("Something bad happened!");
-		}
-
-		sap.ui.getCore().setModel("EventDetails",oResponse);
-		var rLength = parseInt(oResponse
-				.getProperty("/resultsPage/totalEntries"));
-
-		if (rLength === 0) {
-			sap.m.MessageToast.show("No Details"); //with consistent data, this should never occur
-		} else {
+			oList.setBusy(false);
+			sap.ui.getCore().setModel(oResponse);
+			
 			var bus = sap.ui.getCore().getEventBus();
 
 			bus.publish("nav", "to", {
 				dest : "EventDetails",
 				context : undefined
 			});
+		} catch (e) {
+			alert("Something bad happened!");
+			oList.setBusy(false);
 		}
+		
 
 	},
 
-	onDialogCloseButton : function() {
-		this._oDialog.close();
-		this.getView().unbindElement();
-	},
+//	onDialogCloseButton : function() {
+//		this._oDialog.close();
+//		this.getView().unbindElement();
+//	},
 
 /**
  * Similar to onAfterRendering, but this hook is invoked before the controller's
