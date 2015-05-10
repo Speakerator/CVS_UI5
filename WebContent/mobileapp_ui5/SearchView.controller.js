@@ -7,16 +7,18 @@ _apiKey : "Yw4AuPNCzLHvBv86",
 _view : null,
 	
 	onArtistSearch : function(){
-		
+		var oPanel = this.getView().byId("mainPanel");
 		var oInput = this.getView().byId("artistInput").getValue();
 		var oResponse = new sap.ui.model.json.JSONModel();
 		var queryUrl = "http://api.songkick.com/api/3.0/search/artists.json?query=" + oInput + "&apikey=Yw4AuPNCzLHvBv86";
+		oPanel.setBusy(true);
 		try {
 			oResponse.loadData(queryUrl, null,false);	
 		} catch (e) {
+			oPanel.setBusy(false);
 			alert("Something bad happened!");
 		}
-		
+		oPanel.setBusy(false);
 		sap.ui.getCore().setModel(oResponse, "ArtistSearch");
 		var rLength = parseInt(oResponse.getProperty("/resultsPage/totalEntries"));
 		
@@ -35,14 +37,17 @@ _view : null,
 	
 	
 	getArtistCalendar : function(id){
+		var oPanel = this.getView().byId("mainPanel");
 		var oCalendaroResponse = new sap.ui.model.json.JSONModel();
 		var queryUrl = "http://api.songkick.com/api/3.0/artists/"+ id + "/calendar.json?apikey=Yw4AuPNCzLHvBv86";
+		oPanel.setBusy(true);
 		try {
 			oCalendaroResponse.loadData(queryUrl, null,false);	
 		} catch (e) {
+			oPanel.setBusy(false);
 			alert("Something bad happened!");
 		}			
-		
+		oPanel.setBusy(false);
 		sap.ui.getCore().setModel(oCalendarResponse);
 		var rLength = parseInt(oCalendarResponse.getProperty("/resultsPage/totalEntries"));
 		
@@ -67,7 +72,8 @@ _view : null,
 	onLocationSearch : function(){
 		var lat;
 		var long;
-		
+		var oPanel = this.getView().byId("mainPanel");
+		oPanel.setBusy(true);		
 		try {
 			var onSuccess = function(position) {
 				lat = position.coords.latitude;
@@ -80,8 +86,9 @@ _view : null,
 					oResponse.loadData(queryUrl, null,false);	
 				} catch (e) {
 					alert("Something bad happened!");
+					oPanel.setBusy(false);
 				}
-				
+				oPanel.setBusy(false);
 				sap.ui.getCore().setModel(oResponse);
 				var rLength = parseInt(oResponse.getProperty("/resultsPage/totalEntries"));
 				
@@ -115,16 +122,17 @@ _view : null,
 	
 	
 	onFakeLocationSearch : function(){
-		
+				var oPanel = this.getView().byId("mainPanel");
 				var oResponse = new sap.ui.model.json.JSONModel();
 				var queryUrl = "http://api.songkick.com/api/3.0/events.json?apikey=Yw4AuPNCzLHvBv86&location=geo:40.74,-73.98";  				
-				
+				oPanel.setBusy(true);
 				try {
 					oResponse.loadData(queryUrl, null,false);	
 				} catch (e) {
 					alert("Something bad happened!");
+					oPanel.setBusy(false);
 				}
-				
+				oPanel.setBusy(false);
 				sap.ui.getCore().setModel(oResponse);
 				var rLength = parseInt(oResponse.getProperty("/resultsPage/totalEntries"));
 				

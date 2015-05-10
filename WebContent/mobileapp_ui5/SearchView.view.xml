@@ -5,7 +5,7 @@
 		<content>
 			<VerticalLayout xmlns="sap.ui.layout" width="100%">
 				<content>
-					<Panel xmlns="sap.m" visible="true" width="auto" height="100%">
+					<Panel xmlns="sap.m" visible="true" width="auto" height="100%" id="mainPanel">
 						<!-- Artist -->
 						<f:SimpleForm minWidth="1024" maxContainerCols="2"
 							layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
