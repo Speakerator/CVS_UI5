@@ -6,7 +6,7 @@ sap.ui.controller("mobileapp_ui5.SearchView", {
 _apiKey : "Yw4AuPNCzLHvBv86",
 _view : null,
 	
-	onArtistSearch : function(){
+	onArtistSearch : function(evt){
 		var oPanel = this.getView().byId("mainPanel");
 		var oInput = this.getView().byId("artistInput").getValue();
 		var oResponse = new sap.ui.model.json.JSONModel();

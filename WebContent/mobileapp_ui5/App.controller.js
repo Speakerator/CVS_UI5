@@ -83,8 +83,8 @@ sap.ui.controller("mobileapp_ui5.App",
 		navBackHandler : function(channelId, eventId, data) {
 			var page = this.app.getPage(data.source);
 			this.app.back();
-//			page.destroy();
-//			this.app.removePage(data.caller);
+			page.destroy();
+			this.app.removePage(data.caller);
 		},
 		
 		
