@@ -12,6 +12,7 @@ _view : null,
 		var oResponse = new sap.ui.model.json.JSONModel();
 		var queryUrl = "http://api.songkick.com/api/3.0/search/artists.json?query=" + oInput + "&apikey=Yw4AuPNCzLHvBv86";
 		oPanel.setBusy(true);
+		this.getView().invalidate();
 		try {
 			oResponse.loadData(queryUrl, null,false);	
 		} catch (e) {
