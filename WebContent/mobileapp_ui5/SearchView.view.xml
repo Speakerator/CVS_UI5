@@ -1,11 +1,12 @@
 <core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
-	xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:m="sap.m"
 	controllerName="mobileapp_ui5.SearchView" xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page title="MyMusicSearch">
 		<content>
-			<VerticalLayout xmlns="sap.ui.layout" width="100%">
-				<content>
-					<Panel xmlns="sap.m" visible="true" width="auto" height="100%" id="mainPanel">
+			<l:VerticalLayout xmlns="sap.ui.layout" width="100%">
+				<l:content>
+					<Panel xmlns="sap.m" visible="true" width="auto" height="100%"
+						id="mainPanel">
 						<!-- Artist -->
 						<f:SimpleForm minWidth="1024" maxContainerCols="2"
 							layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
@@ -16,15 +17,11 @@
 									placeholder="Artist Name" value="Katy" search="onArtistSearch" />
 							</f:content>
 						</f:SimpleForm>
-						<!-- <f:SimpleForm minWidth="1024" maxContainerCols="2"
-							layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
-							emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
-							<f:content>
-								<Label text="City" />
-								<SearchField xmlns="sap.m" id="cityInput" width=""
-									placeholder="City" value="Chicago" search="onCitySearch" />
-							</f:content>
-						</f:SimpleForm> -->
+						<!-- <f:SimpleForm minWidth="1024" maxContainerCols="2" layout="ResponsiveGridLayout" 
+							labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" 
+							columnsM="1"> <f:content> <Label text="City" /> <SearchField xmlns="sap.m" 
+							id="cityInput" width="" placeholder="City" value="Chicago" search="onCitySearch" 
+							/> </f:content> </f:SimpleForm> -->
 						<f:SimpleForm minWidth="1024" maxContainerCols="2"
 							layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
 							emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
@@ -35,20 +32,18 @@
 							</f:content>
 						</f:SimpleForm>
 
-						<!-- <f:SimpleForm minWidth="1024" maxContainerCols="2"
-							layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
-							emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
-							<f:content>
-								<Label text="Events in New York" />
-								<Button xmlns="sap.m" text="Go!" press="onFakeLocationSearch" />
-
-							</f:content>
-						</f:SimpleForm> -->
+						<!-- <f:SimpleForm minWidth="1024" maxContainerCols="2" layout="ResponsiveGridLayout" 
+							labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" 
+							columnsM="1"> <f:content> <Label text="Events in New York" /> <Button xmlns="sap.m" 
+							text="Go!" press="onFakeLocationSearch" /> </f:content> </f:SimpleForm> -->
 
 					</Panel>
 
-				</content> <!-- sap.ui.core.Control -->
-			</VerticalLayout>
+				</l:content> <!-- sap.ui.core.Control -->
+				<l:dependents>
+					<m:BusyDialog id="BusyDialog_Search" />
+				</l:dependents>
+			</l:VerticalLayout>
 		</content> <!-- sap.ui.core.Control -->
 
 		<footer>

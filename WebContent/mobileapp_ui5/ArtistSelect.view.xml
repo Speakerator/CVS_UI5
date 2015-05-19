@@ -11,10 +11,8 @@
 					    numberUnit="Auf Tour bis:">
 						<firstStatus>
 							<ObjectStatus
-							    text="{ArtistSearch>onTourUntil}"
-								state="{
-              						path: 'onTourUntil',
-            						formatter: 'mobileapp_ui5.Formatter.status'}" />
+							    text="{path: 'ArtistSearch>onTourUntil', formatter:'.formatText'}"
+								state="{path: 'ArtistSearch>onTourUntil', formatter:'.formatStatus'}" />
          					<!-- <ObjectStatus
             						    text="{onTourUntil}"/> -->
 						</firstStatus>

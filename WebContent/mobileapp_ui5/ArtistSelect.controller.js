@@ -1,4 +1,3 @@
-jQuery.sap.require("mobileapp_ui5.Formatter");
 sap.ui.controller("mobileapp_ui5.ArtistSelect", {
 
 /**
@@ -55,6 +54,25 @@ sap.ui.controller("mobileapp_ui5.ArtistSelect", {
 		});
 		
 	},
+	
+	
+	formatStatus :  function (sStatus) {
+		if (sStatus === null || sStatus === undefined) {
+	      return "Error";
+	    } else {
+	      return "Success";
+	    }
+	},
+	
+	formatText :  function (sStatus) {
+		  
+	      if (sStatus === null) {
+	        return "not on tour";
+	      }  else {
+	        return "on tour!";
+	      }
+	  },
+
 
 /**
 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered

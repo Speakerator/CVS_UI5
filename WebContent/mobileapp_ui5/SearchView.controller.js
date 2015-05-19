@@ -11,15 +11,15 @@ _view : null,
 		var oInput = this.getView().byId("artistInput").getValue();
 		var oResponse = new sap.ui.model.json.JSONModel();
 		var queryUrl = "http://api.songkick.com/api/3.0/search/artists.json?query=" + oInput + "&apikey=Yw4AuPNCzLHvBv86";
-		oPanel.setBusy(true);
-		this.getView().invalidate();
+		var oDialog = this.getView().byId("BusyDialog_Search");
+	    oDialog.open();
 		try {
 			oResponse.loadData(queryUrl, null,false);	
 		} catch (e) {
-			oPanel.setBusy(false);
+			oDialog.close();
 			alert("Something bad happened!");
 		}
-		oPanel.setBusy(false);
+		oDialog.close();
 		sap.ui.getCore().setModel(oResponse, "ArtistSearch");
 		var rLength = parseInt(oResponse.getProperty("/resultsPage/totalEntries"));
 		
@@ -47,7 +47,8 @@ _view : null,
 		var lat;
 		var long;
 		var oPanel = this.getView().byId("mainPanel");
-		oPanel.setBusy(true);		
+		var oDialog = this.getView().byId("BusyDialog_Search");
+	    oDialog.open();	
 		try {
 			var onSuccess = function(position) {
 				lat = position.coords.latitude;
@@ -62,9 +63,9 @@ _view : null,
 					oResponse.loadData(queryUrl, null,false);	
 				} catch (e) {
 					alert("Something bad happened!");
-					oPanel.setBusy(false);
+					oDialog.close();
 				}
-				oPanel.setBusy(false);
+				oDialog.close();
 				sap.ui.getCore().setModel(oResponse,"MetroArea");
 				var rLength = parseInt(oResponse.getProperty("/resultsPage/totalEntries"));
 				
