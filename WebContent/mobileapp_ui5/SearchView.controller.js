@@ -8,7 +8,11 @@ _view : null,
 	
 	onArtistSearch : function(evt){
 		var oPanel = this.getView().byId("mainPanel");
-		var oInput = this.getView().byId("artistInput").getValue();
+		var oInput = evt.mParameters.query;
+		//Search query is empty or delete button pressed
+		if(oInput === ""){
+			return;
+		}
 		var oResponse = new sap.ui.model.json.JSONModel();
 		var queryUrl = "http://api.songkick.com/api/3.0/search/artists.json?query=" + oInput + "&apikey=Yw4AuPNCzLHvBv86";
 		var oDialog = this.getView().byId("BusyDialog_Search");
