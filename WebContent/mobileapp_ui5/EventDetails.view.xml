@@ -21,13 +21,14 @@
 							<Text text="{/resultsPage/results/event/location/city}" />
 
 							<Label text="Date" />
-							<Text text="{/resultsPage/results/event/start/date}" />
+							<Text text="{path: '/resultsPage/results/event/start/date', formatter:'.formatDate'}" />
+							
 
 							<Label text="Time" />
-							<Text text="{/resultsPage/results/event/start/time}" />
+							<Text text="{path: '/resultsPage/results/event/start/time', formatter:'.formatTime'}" />
 
 							<Label text="Popularity" />
-							<Text text="{/resultsPage/results/event/popularity}" />
+							<Text text="{path: '/resultsPage/results/event/popularity', formatter:'.formatPop'}" />
 						</f:content>
 					</f:SimpleForm>
 				</content> <!-- sap.ui.core.Control -->
@@ -66,7 +67,7 @@
 							<Text text="{/resultsPage/results/event/venue/street}" />
 
 							<Label text="Website" />
-							<Text text="{/resultsPage/results/event/venue/website}" />
+							<Text text="{path: '/resultsPage/results/event/venue/website', formatter:'.formatWebsite'}" />
 						</f:content>
 					</f:SimpleForm>
 				</content> <!-- sap.ui.core.Control -->

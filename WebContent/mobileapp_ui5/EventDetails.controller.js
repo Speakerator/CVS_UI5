@@ -44,5 +44,48 @@ sap.ui.controller("mobileapp_ui5.EventDetails", {
 //	onExit: function() {
 //
 //	}
+	
+	//-22.-09.2015
+	formatDate : function(date){
+		var year, month, day = null;
+		var s1, s2 = null;
+		s1 = date.indexOf("-") ;
+		s2 = date.lastIndexOf("-");
+		
+		year = date.slice(0,s1);
+		month = date.slice(s1+1,s2);
+		day = date.slice(s2+1,date.length);
+		
+		return day + "." + month + "." + year;
+//		return date;
+	},
+	
+	formatTime : function(time){
+		if(time === "" || time === null){
+			return "TBA";
+		}else{
+			return time;
+			
+		}
+		
+	},
+	
+	formatWebsite : function(website){
+		if(website === "" || website === null){
+			return "No website";
+		}else{
+			return website;
+			
+		}
+		
+	},
+	
+	formatPop : function(popularity){
+		
+		var popDouble = (parseFloat(popularity));
+		return Math.round(popDouble * 100) +  "%";
+		
+		
+	}
 
 });
