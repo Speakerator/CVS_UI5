@@ -21,14 +21,17 @@
 							<Text text="{/resultsPage/results/event/location/city}" />
 
 							<Label text="Date" />
-							<Text text="{path: '/resultsPage/results/event/start/date', formatter:'.formatDate'}" />
-							
+							<Text
+								text="{path: '/resultsPage/results/event/start/date', formatter:'.formatDate'}" />
+
 
 							<Label text="Time" />
-							<Text text="{path: '/resultsPage/results/event/start/time', formatter:'.formatTime'}" />
+							<Text
+								text="{path: '/resultsPage/results/event/start/time', formatter:'.formatTime'}" />
 
 							<Label text="Popularity" />
-							<Text text="{path: '/resultsPage/results/event/popularity', formatter:'.formatPop'}" />
+							<Text
+								text="{path: '/resultsPage/results/event/popularity', formatter:'.formatPop'}" />
 						</f:content>
 					</f:SimpleForm>
 				</content> <!-- sap.ui.core.Control -->
@@ -49,13 +52,13 @@
 				</content> <!-- sap.ui.core.Control -->
 			</Panel>
 
-			<Panel xmlns="sap.m" headerText="Venue" width="100%"
-				height="auto" expandable="true" expanded="true">
+			<Panel xmlns="sap.m" headerText="Venue" width="100%" height="auto"
+				expandable="true" expanded="true">
 				<content>
 					<f:SimpleForm minWidth="2048" maxContainerCols="2"
-						editable="false" layout="ResponsiveGridLayout"
-						labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0"
-						columnsL="1" columnsM="1">
+						editable="false" layout="ResponsiveGridLayout" labelSpanL="4"
+						labelSpanM="4" emptySpanL="0" emptySpanM="0" columnsL="1"
+						columnsM="1">
 						<f:content>
 							<Label text="Name" />
 							<Text text="{/resultsPage/results/event/venue/displayName}" />
@@ -67,17 +70,20 @@
 							<Text text="{/resultsPage/results/event/venue/street}" />
 
 							<Label text="Website" />
-							<Text text="{path: '/resultsPage/results/event/venue/website', formatter:'.formatWebsite'}" />
+							<Link text="{path: '/resultsPage/results/event/uri', formatter:'.formatWebsite'}" press="onUrlPress" />
 						</f:content>
 					</f:SimpleForm>
 				</content> <!-- sap.ui.core.Control -->
 			</Panel>
-
-
-
-
-
-
 		</content>
+		<footer>
+			<Bar xmlns="sap.m">
+				<contentMiddle>
+					<Image xmlns="sap.m" src="mobileapp_ui5/assets/SongKick_Black.jpg"
+						visible="true" width="100%" height="100%" press="onBannerPress" />
+
+				</contentMiddle> <!-- sap.ui.core.Control -->
+			</Bar>
+		</footer> <!-- sap.m.IBar -->
 	</Page>
 </core:View>

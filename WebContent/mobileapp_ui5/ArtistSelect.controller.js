@@ -72,6 +72,11 @@ sap.ui.controller("mobileapp_ui5.ArtistSelect", {
 	        return "on tour!";
 	      }
 	  },
+	  
+	  onBannerPress: function(){
+			window.open("http://www.songkick.com", "_system");
+			
+		}
 
 
 /**

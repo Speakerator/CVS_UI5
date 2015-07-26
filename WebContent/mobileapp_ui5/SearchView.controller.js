@@ -5,6 +5,11 @@ sap.ui.controller("mobileapp_ui5.SearchView", {
 	
 _apiKey : "Yw4AuPNCzLHvBv86",
 _view : null,
+
+onInit: function() {
+	this._view = this;	
+ },
+
 	
 	onArtistSearch : function(evt){
 		var oPanel = this.getView().byId("mainPanel");
@@ -131,6 +136,11 @@ _view : null,
 				}
 	},
 	
+	onBannerPress: function(){
+		window.open("http://www.songkick.com", "_system");
+		
+	}
+	
 	
 	
 
@@ -142,10 +152,7 @@ _view : null,
 	 * 
 	 * @memberOf mobileapp_ui5.SearchView
 	 */
-	 onInit: function() {
-			this._view = this;	
-		 },
-
+	
 /**
  * Similar to onAfterRendering, but this hook is invoked before the controller's
  * View is re-rendered (NOT before the first rendering! onInit() is used for

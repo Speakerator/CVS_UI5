@@ -31,27 +31,18 @@
 
 							</f:content>
 						</f:SimpleForm>
-
-						<!-- <f:SimpleForm minWidth="1024" maxContainerCols="2" layout="ResponsiveGridLayout" 
-							labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" 
-							columnsM="1"> <f:content> <Label text="Events in New York" /> <Button xmlns="sap.m" 
-							text="Go!" press="onFakeLocationSearch" /> </f:content> </f:SimpleForm> -->
-
 					</Panel>
-
 				</l:content> <!-- sap.ui.core.Control -->
 				<l:dependents>
 					<m:BusyDialog id="BusyDialog_Search" />
 				</l:dependents>
 			</l:VerticalLayout>
 		</content> <!-- sap.ui.core.Control -->
-
 		<footer>
 			<Bar xmlns="sap.m">
 				<contentMiddle>
 					<Image xmlns="sap.m" src="mobileapp_ui5/assets/SongKick_Black.jpg"
-						visible="true" width="100%" height="100%">
-					</Image>
+						visible="true" width="100%" height="100%" press="onBannerPress"/>
 
 				</contentMiddle> <!-- sap.ui.core.Control -->
 			</Bar>

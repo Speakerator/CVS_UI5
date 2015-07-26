@@ -1,5 +1,7 @@
 sap.ui.controller("mobileapp_ui5.App",
 		{
+	
+			//apiKey : "Yw4AuPNCzLHvBv86",
 
 			onInit : function() {
 				var view = this.getView();
@@ -13,6 +15,11 @@ sap.ui.controller("mobileapp_ui5.App",
 				bus.subscribe("nav","backTo", this.navBackToHandler, this);
 
 				},
+				
+				
+			getApiKey : function(){
+				return "Yw4AuPNCzLHvBv86";
+			},
 		
 				
 				
@@ -95,6 +102,11 @@ sap.ui.controller("mobileapp_ui5.App",
 			this.app.removePage(data.caller);
 			
 		},
+		
+		onBannerPress: function(){
+			window.open("http://www.songkick.com", "_system");
+			
+		}
 		
 			
 			

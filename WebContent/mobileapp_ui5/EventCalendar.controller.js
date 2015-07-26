@@ -45,6 +45,11 @@ sap.ui.controller("mobileapp_ui5.EventCalendar", {
 		
 
 	},
+	
+	onBannerPress: function(){
+		window.open("http://www.songkick.com", "_system");
+		
+	}
 
 /**
  * Similar to onAfterRendering, but this hook is invoked before the controller's
