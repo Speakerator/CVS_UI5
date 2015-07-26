@@ -27,7 +27,8 @@ onListItemPress : function(evt){
 		
 		 //event search
 		var oResponse = new sap.ui.model.json.JSONModel();
-		var queryUrl ="http://api.songkick.com/api/3.0/metro_areas/"+ id +"/calendar.json?apikey=Yw4AuPNCzLHvBv86";
+		var apiKey = sap.ui.getCore().byId("appView").getController().getApiKey();
+		var queryUrl ="http://api.songkick.com/api/3.0/metro_areas/"+ id +"/calendar.json?apikey=" + apiKey;
 		oList.setBusy(true);
 		try {
 			oResponse.loadData(queryUrl, null,false);	

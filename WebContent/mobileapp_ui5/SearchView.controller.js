@@ -3,7 +3,6 @@ sap.ui.controller("mobileapp_ui5.SearchView", {
 //	
 	
 	
-_apiKey : "Yw4AuPNCzLHvBv86",
 _view : null,
 
 onInit: function() {
@@ -19,7 +18,8 @@ onInit: function() {
 			return;
 		}
 		var oResponse = new sap.ui.model.json.JSONModel();
-		var queryUrl = "http://api.songkick.com/api/3.0/search/artists.json?query=" + oInput + "&apikey=Yw4AuPNCzLHvBv86";
+		var apiKey = sap.ui.getCore().byId("appView").getController().getApiKey();
+		var queryUrl = "http://api.songkick.com/api/3.0/search/artists.json?query=" + oInput + "&apikey=" + apiKey;
 		var oDialog = this.getView().byId("BusyDialog_Search");
 	    oDialog.open();
 		try {
@@ -50,7 +50,7 @@ onInit: function() {
 		
 	},
 	//metro area search
-	//http://api.songkick.com/api/3.0/search/locations.json?location=geo:50.6886048,10.9180371&apikey=Yw4AuPNCzLHvBv86
+
 
 	onLocationSearch : function(){
 		var lat;
@@ -65,8 +65,8 @@ onInit: function() {
 				
 				
 				var oResponse = new sap.ui.model.json.JSONModel();
-				http://api.songkick.com/api/3.0/search/locations.json?location=geo:{lat,lng}&apikey={your_api_key}
-				var queryUrl = "http://api.songkick.com/api/3.0/search/locations.json?apikey=Yw4AuPNCzLHvBv86&location=geo:" + lat + "," + long;  
+				var apiKey = sap.ui.getCore().byId("appView").getController().getApiKey();
+				var queryUrl = "http://api.songkick.com/api/3.0/search/locations.json?apikey="+ apiKey + "&location=geo:" + lat + "," + long;  
 
 				try {
 					oResponse.loadData(queryUrl, null,false);	
@@ -111,7 +111,8 @@ onInit: function() {
 	onFakeLocationSearch : function(){
 				var oPanel = this.getView().byId("mainPanel");
 				var oResponse = new sap.ui.model.json.JSONModel();
-				var queryUrl = "http://api.songkick.com/api/3.0/events.json?apikey=Yw4AuPNCzLHvBv86&location=geo:40.74,-73.98";  				
+				var apiKey = sap.ui.getCore().byId("appView").getController().getApiKey();
+				var queryUrl = "http://api.songkick.com/api/3.0/events.json?apikey=" + apiKey + "&location=geo:40.74,-73.98";  				
 				oPanel.setBusy(true);
 				try {
 					oResponse.loadData(queryUrl, null,false);	

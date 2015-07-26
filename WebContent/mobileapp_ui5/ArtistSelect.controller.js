@@ -12,7 +12,6 @@ sap.ui.controller("mobileapp_ui5.ArtistSelect", {
 	onListItemPress : function(evt){
 		
 		//sample event id: 1134363
-		//sample url: http://api.songkick.com/api/3.0/artists/1134363/calendar.json?apikey=Yw4AuPNCzLHvBv86
 		
 		var oList = this.getView().byId("artistList");
 		
@@ -20,7 +19,8 @@ sap.ui.controller("mobileapp_ui5.ArtistSelect", {
 		var id = evt.getSource().getAttributes()[0].getText();
 		
 		var oResponse = new sap.ui.model.json.JSONModel();
-		var queryUrl = "http://api.songkick.com/api/3.0/artists/"+ id + "/calendar.json?apikey=Yw4AuPNCzLHvBv86";
+		var apiKey = sap.ui.getCore().byId("appView").getController().getApiKey();
+		var queryUrl = "http://api.songkick.com/api/3.0/artists/"+ id + "/calendar.json?apikey=" + apiKey;
 		oList.setBusy(true);
 		try {
 			oResponse.loadData(queryUrl, null,false);	

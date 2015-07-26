@@ -1,7 +1,7 @@
 sap.ui.controller("mobileapp_ui5.App",
 		{
 	
-			//apiKey : "Yw4AuPNCzLHvBv86",
+			_apiKey : "Yw4AuPNCzLHvBv86",
 
 			onInit : function() {
 				var view = this.getView();
@@ -18,9 +18,10 @@ sap.ui.controller("mobileapp_ui5.App",
 				
 				
 			getApiKey : function(){
-				return "Yw4AuPNCzLHvBv86";
+				return this._apiKey;
 			},
-		
+			
+			
 				
 				
 		// navigation handler

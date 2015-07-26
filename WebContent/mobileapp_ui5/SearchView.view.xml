@@ -1,7 +1,7 @@
 <core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:m="sap.m"
 	controllerName="mobileapp_ui5.SearchView" xmlns:html="http://www.w3.org/1999/xhtml">
-	<Page title="MyMusicSearch">
+	<Page title="MyConcertSearch">
 		<content>
 			<l:VerticalLayout xmlns="sap.ui.layout" width="100%">
 				<l:content>
